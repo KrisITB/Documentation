@@ -300,7 +300,7 @@ These ASCII characters turn the respective channels [9-16] on. The channel will 
 
 **c**
 
-Use 8 channels only. If the Daisy Module is attached, it will be unattached, and access to only channels 1-8] will be available.
+Use 8 channels only. If the Daisy Module is attached, it will be unattached, and access to only channels 1-8 will be available.
 
 **returns**
 
