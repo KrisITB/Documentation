@@ -217,7 +217,7 @@ On failure:
 - If not streaming:
   - Not enough characters received, `Failure: too few chars$$$` (**example** user sends x102000X)
   - 5th character is not the upper case 'X', `Failure: 5th char not Z$$$` (**example** user sends x1020000V)
-  - Too many characters or some other issue: `Failure: Err: too many chars$$$`
+  - Too many characters or some other issue, `Failure: Err: too many chars$$$`
 - If not all commands are not received within 1 second, `Timeout processing multi byte message - please send all commands at once as of v2$$$`
 
 ### SD card Commands
@@ -472,6 +472,7 @@ This works similarly to the Channel Settings commands; however, there is no latc
 First, the user sends **\~~**
 
 **returns** `Sample rate is 250Hz$$$`
+
 
 Then, the user sends **~5**
 
