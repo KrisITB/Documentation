@@ -217,7 +217,7 @@ On failure:
 - If not streaming:
   - Not enough characters received, `Failure: too few chars$$$` (**example** user sends x102000X)
   - 5th character is not the upper case 'X', `Failure: 5th char not Z$$$` (**example** user sends x1020000V)
-  - Too many characters or some other issue, `Failure: Err: too many chars$$$`
+  - Too many characters or some other issue: `Failure: Err: too many chars$$$`
 - If not all commands are not received within 1 second, `Timeout processing multi byte message - please send all commands at once as of v2$$$`
 
 ### SD card Commands
@@ -300,7 +300,7 @@ These ASCII characters turn the respective channels [9-16] on. The channel will 
 
 **c**
 
-Use 8 channels only. If the Daisy Module is attached, it will be unattached, and access to only channels 1-8 will be available.
+Use 8 channels only. If the Daisy Module is attached, it will be unattached, and access to only channels 1-8] will be available.
 
 **returns**
 
@@ -492,7 +492,7 @@ This works similarly to the sample rate. Power cycling the OpenBCI board will ca
 - 1 = Debug mode - Sends serial output over the external serial port which is helpful for debugging.
 - 2 = Analog mode - Reads from analog pins A5(D11), A6(D12), and A7(D13) as well.
 - 3 = Digital mode - Reads from analog pins D11, D12, D13, D17, and D18.
-- 4 = Marker mode - Turns accel off and injects markers into the stream by sending _\`X_ where `X` is any char to add to the first AUX byte.
+- 4 = Marker mode - Turns accel off and injects markers into the stream by sending _\`X_ where `X` is stored in AUX1 (`auxData[0]`), a 16-bit value serialized MSB-first into the first two raw-AUX bytes. For example, marker `0x28` appears on the wire as `00 28`.
 - / = Get current board mode
 
 **EXAMPLE**
